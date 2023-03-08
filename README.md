@@ -30,10 +30,14 @@ The population [standard deviation][standard-deviation] of a finite size populat
 
 <!-- <equation class="equation" label="eq:population_standard_deviation" align="center" raw="\sigma = \sqrt{\frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2}" alt="Equation for the population standard deviation."> -->
 
-<div class="equation" align="center" data-raw-text="\sigma = \sqrt{\frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2}" data-equation="eq:population_standard_deviation">
+```math
+\sigma = \sqrt{\frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2}
+```
+
+<!-- <div class="equation" align="center" data-raw-text="\sigma = \sqrt{\frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2}" data-equation="eq:population_standard_deviation">
     <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@f7d3b7aaae5a31aaf11ed9d6a1d4fd4cfa7987ca/lib/node_modules/@stdlib/stats/base/sstdevtk/docs/img/equation_population_standard_deviation.svg" alt="Equation for the population standard deviation.">
     <br>
-</div>
+</div> -->
 
 <!-- </equation> -->
 
@@ -41,10 +45,14 @@ where the population mean is given by
 
 <!-- <equation class="equation" label="eq:population_mean" align="center" raw="\mu = \frac{1}{N} \sum_{i=0}^{N-1} x_i" alt="Equation for the population mean."> -->
 
-<div class="equation" align="center" data-raw-text="\mu = \frac{1}{N} \sum_{i=0}^{N-1} x_i" data-equation="eq:population_mean">
+```math
+\mu = \frac{1}{N} \sum_{i=0}^{N-1} x_i
+```
+
+<!-- <div class="equation" align="center" data-raw-text="\mu = \frac{1}{N} \sum_{i=0}^{N-1} x_i" data-equation="eq:population_mean">
     <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@f7d3b7aaae5a31aaf11ed9d6a1d4fd4cfa7987ca/lib/node_modules/@stdlib/stats/base/sstdevtk/docs/img/equation_population_mean.svg" alt="Equation for the population mean.">
     <br>
-</div>
+</div> -->
 
 <!-- </equation> -->
 
@@ -52,10 +60,14 @@ Often in the analysis of data, the true population [standard deviation][standard
 
 <!-- <equation class="equation" label="eq:corrected_sample_standard_deviation" align="center" raw="s = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2}" alt="Equation for computing a corrected sample standard deviation."> -->
 
-<div class="equation" align="center" data-raw-text="s = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2}" data-equation="eq:corrected_sample_standard_deviation">
+```math
+s = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2}
+```
+
+<!-- <div class="equation" align="center" data-raw-text="s = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2}" data-equation="eq:corrected_sample_standard_deviation">
     <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@f7d3b7aaae5a31aaf11ed9d6a1d4fd4cfa7987ca/lib/node_modules/@stdlib/stats/base/sstdevtk/docs/img/equation_corrected_sample_standard_deviation.svg" alt="Equation for computing a corrected sample standard deviation.">
     <br>
-</div>
+</div> -->
 
 <!-- </equation> -->
 
@@ -63,10 +75,14 @@ where the sample mean is given by
 
 <!-- <equation class="equation" label="eq:sample_mean" align="center" raw="\bar{x} = \frac{1}{n} \sum_{i=0}^{n-1} x_i" alt="Equation for the sample mean."> -->
 
-<div class="equation" align="center" data-raw-text="\bar{x} = \frac{1}{n} \sum_{i=0}^{n-1} x_i" data-equation="eq:sample_mean">
+```math
+\bar{x} = \frac{1}{n} \sum_{i=0}^{n-1} x_i
+```
+
+<!-- <div class="equation" align="center" data-raw-text="\bar{x} = \frac{1}{n} \sum_{i=0}^{n-1} x_i" data-equation="eq:sample_mean">
     <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@f7d3b7aaae5a31aaf11ed9d6a1d4fd4cfa7987ca/lib/node_modules/@stdlib/stats/base/sstdevtk/docs/img/equation_sample_mean.svg" alt="Equation for the sample mean.">
     <br>
-</div>
+</div> -->
 
 <!-- </equation> -->
 
@@ -76,38 +92,30 @@ The use of the term `n-1` is commonly referred to as Bessel's correction. Note, 
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-sstdevtk
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-sstdevtk = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var sstdevtk = require( 'path/to/vendor/umd/stats-base-sstdevtk/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.sstdevtk;
-})();
-</script>
+var sstdevtk = require( '@stdlib/stats-base-sstdevtk' );
 ```
 
 #### sstdevtk( N, correction, x, stride )
@@ -214,16 +222,11 @@ var v = sstdevtk.ndarray( N, 1, x, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var Float32Array = require( '@stdlib/array-float32' );
+var sstdevtk = require( '@stdlib/stats-base-sstdevtk' );
 
 var x;
 var i;
@@ -236,11 +239,6 @@ console.log( x );
 
 var v = sstdevtk( x.length, 1, x, 1 );
 console.log( v );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -330,7 +328,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
@@ -348,7 +346,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [standard-deviation]: https://en.wikipedia.org/wiki/Standard_deviation
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/umd
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
@@ -356,15 +354,15 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/stats/base/dstdevtk]: https://github.com/stdlib-js/stats-base-dstdevtk/tree/umd
+[@stdlib/stats/base/dstdevtk]: https://github.com/stdlib-js/stats-base-dstdevtk
 
-[@stdlib/stats/base/snanstdevtk]: https://github.com/stdlib-js/stats-base-snanstdevtk/tree/umd
+[@stdlib/stats/base/snanstdevtk]: https://github.com/stdlib-js/stats-base-snanstdevtk
 
-[@stdlib/stats/base/sstdev]: https://github.com/stdlib-js/stats-base-sstdev/tree/umd
+[@stdlib/stats/base/sstdev]: https://github.com/stdlib-js/stats-base-sstdev
 
-[@stdlib/stats/base/stdevtk]: https://github.com/stdlib-js/stats-base-stdevtk/tree/umd
+[@stdlib/stats/base/stdevtk]: https://github.com/stdlib-js/stats-base-stdevtk
 
-[@stdlib/stats/base/svariancetk]: https://github.com/stdlib-js/stats-base-svariancetk/tree/umd
+[@stdlib/stats/base/svariancetk]: https://github.com/stdlib-js/stats-base-svariancetk
 
 <!-- </related-links> -->
 
