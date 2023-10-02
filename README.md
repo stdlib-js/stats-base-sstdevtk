@@ -103,19 +103,30 @@ The use of the term `n-1` is commonly referred to as Bessel's correction. Note, 
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-sstdevtk
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import sstdevtk from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@esm/index.mjs';
-```
-The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/stats-base-sstdevtk/tags). For example,
-
-```javascript
-import sstdevtk from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@v0.1.0-esm/index.mjs';
+var sstdevtk = require( '@stdlib/stats-base-sstdevtk' );
 ```
 
 #### sstdevtk( N, correction, x, stride )
@@ -123,7 +134,7 @@ import sstdevtk from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@
 Computes the [standard deviation][standard-deviation] of a single-precision floating-point strided array `x` using a one-pass textbook algorithm.
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
+var Float32Array = require( '@stdlib/array-float32' );
 
 var x = new Float32Array( [ 1.0, -2.0, 2.0 ] );
 var N = x.length;
@@ -142,8 +153,8 @@ The function has the following parameters:
 The `N` and `stride` parameters determine which elements in `x` are accessed at runtime. For example, to compute the [standard deviation][standard-deviation] of every other element in `x`,
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
-import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@esm/index.mjs';
+var Float32Array = require( '@stdlib/array-float32' );
+var floor = require( '@stdlib/math-base-special-floor' );
 
 var x = new Float32Array( [ 1.0, 2.0, 2.0, -7.0, -2.0, 3.0, 4.0, 2.0 ] );
 var N = floor( x.length / 2 );
@@ -157,8 +168,8 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
-import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@esm/index.mjs';
+var Float32Array = require( '@stdlib/array-float32' );
+var floor = require( '@stdlib/math-base-special-floor' );
 
 var x0 = new Float32Array( [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0 ] );
 var x1 = new Float32Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
@@ -174,7 +185,7 @@ var v = sstdevtk( N, 1, x1, 2 );
 Computes the [standard deviation][standard-deviation] of a single-precision floating-point strided array using a one-pass textbook algorithm and alternative indexing semantics.
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
+var Float32Array = require( '@stdlib/array-float32' );
 
 var x = new Float32Array( [ 1.0, -2.0, 2.0 ] );
 var N = x.length;
@@ -190,8 +201,8 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the `offset` parameter supports indexing semantics based on a starting index. For example, to calculate the [standard deviation][standard-deviation] for every other value in `x` starting from the second value
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
-import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@esm/index.mjs';
+var Float32Array = require( '@stdlib/array-float32' );
+var floor = require( '@stdlib/math-base-special-floor' );
 
 var x = new Float32Array( [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0 ] );
 var N = floor( x.length / 2 );
@@ -222,16 +233,11 @@ var v = sstdevtk.ndarray( N, 1, x, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@esm/index.mjs';
-import sstdevtk from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-sstdevtk@esm/index.mjs';
+```javascript
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var Float32Array = require( '@stdlib/array-float32' );
+var sstdevtk = require( '@stdlib/stats-base-sstdevtk' );
 
 var x;
 var i;
@@ -244,10 +250,6 @@ console.log( x );
 
 var v = sstdevtk( x.length, 1, x, 1 );
 console.log( v );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -293,7 +295,7 @@ console.log( v );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -323,8 +325,8 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/stats-base-sstdevtk.svg
 [npm-url]: https://npmjs.org/package/@stdlib/stats-base-sstdevtk
 
-[test-image]: https://github.com/stdlib-js/stats-base-sstdevtk/actions/workflows/test.yml/badge.svg?branch=v0.1.0
-[test-url]: https://github.com/stdlib-js/stats-base-sstdevtk/actions/workflows/test.yml?query=branch:v0.1.0
+[test-image]: https://github.com/stdlib-js/stats-base-sstdevtk/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/stats-base-sstdevtk/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/stats-base-sstdevtk/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/stats-base-sstdevtk?branch=main
@@ -355,7 +357,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [standard-deviation]: https://en.wikipedia.org/wiki/Standard_deviation
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/esm
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
@@ -363,15 +365,15 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/stats/base/dstdevtk]: https://github.com/stdlib-js/stats-base-dstdevtk/tree/esm
+[@stdlib/stats/base/dstdevtk]: https://github.com/stdlib-js/stats-base-dstdevtk
 
-[@stdlib/stats/base/snanstdevtk]: https://github.com/stdlib-js/stats-base-snanstdevtk/tree/esm
+[@stdlib/stats/base/snanstdevtk]: https://github.com/stdlib-js/stats-base-snanstdevtk
 
-[@stdlib/stats/base/sstdev]: https://github.com/stdlib-js/stats-base-sstdev/tree/esm
+[@stdlib/stats/base/sstdev]: https://github.com/stdlib-js/stats-base-sstdev
 
-[@stdlib/stats/base/stdevtk]: https://github.com/stdlib-js/stats-base-stdevtk/tree/esm
+[@stdlib/stats/base/stdevtk]: https://github.com/stdlib-js/stats-base-stdevtk
 
-[@stdlib/stats/base/svariancetk]: https://github.com/stdlib-js/stats-base-svariancetk/tree/esm
+[@stdlib/stats/base/svariancetk]: https://github.com/stdlib-js/stats-base-svariancetk
 
 <!-- </related-links> -->
 
